@@ -2,6 +2,8 @@
 
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\ApplicationController;
+use App\Http\Controllers\EmploymentController;
+use App\Http\Controllers\AddressController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -33,4 +35,9 @@ require __DIR__.'/auth.php';
 
 
 // application
-Route::get('/new-application', [ApplicationController::class, 'newApplication']);
+Route::get('/application/form/1', [ApplicationController::class, 'view_form'])->name('application.view_form');
+Route::get('/application/form/2', [AddressController::class, 'view_form'])->name('address.view_form');
+Route::get('/application/form/3', [EmploymentController::class, 'view_form'])->name('employment.view_form');
+Route::post('/application/form/1/store', [ApplicationController::class, 'store'])->name('application.store');
+Route::post('/application/form/2/store', [AddressController::class, 'store'])->name('address.store');
+Route::post('/application/form/3/store', [EmploymentController::class, 'store'])->name('employment.store');
