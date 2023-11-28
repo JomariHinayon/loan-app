@@ -45,6 +45,6 @@ class AddressController extends Controller
         ]);
         $new_address->save();
 
-        return redirect()->route('address.view_form')->with('success', 'Loan application submitted successfully.');
+        return redirect()->route('employment.view_form')->with('success', 'Loan application submitted successfully.');
     }
 }

@@ -17,6 +17,7 @@ class Application extends Model
                             'gender',
                             'phone_number',  
                             'birthday', 
+                            'loan_number'
                         ];
     use HasFactory;
 

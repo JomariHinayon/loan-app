@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\View\View;
+use App\Events\LoanCreated;
 
 use App\Models\Application;
 
@@ -43,6 +44,8 @@ class ApplicationController extends Controller
             'birthday' => $formattedBirthday,
         ]);
         $new_application->save();
+
+        event(new LoanCreated($new_application));
 
         $request->session()->put('new_application_id', $new_application->id);
         return redirect()->route('address.view_form')->with('success', 'Loan application submitted successfully.');
