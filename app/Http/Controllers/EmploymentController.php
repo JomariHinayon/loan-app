@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 use Illuminate\View\View;
 use App\Models\Employment;
 use App\Models\Associate;
+use Illuminate\Support\Facades\Storage;
+use App\Models\Application;
 
 
 class EmploymentController extends Controller
@@ -20,7 +22,11 @@ class EmploymentController extends Controller
     {
         // dd($request->all());
         
-        // Retrieve application ID from session
+        // $request->validate([
+        //     'valid_id_1' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+        //     'valid_id_2' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048'
+        // ]);
+
         $newApplicationId = $request->session()->get('new_application_id');
         
         $new_employment = new Employment([
@@ -51,7 +57,18 @@ class EmploymentController extends Controller
             'application_id' => $newApplicationId
         ]);
         $new_associate2->save();
+        
+        $fileName1 = time() . '.' . $request->valid_id_1->extension();
+        $request->valid_id_1->storeAs('images', $fileName1, 'public');
+        
+        $fileName2 = time() . '.' . $request->valid_id_2->extension();
+        $request->valid_id_2->storeAs('images', $fileName2, 'public');
+        
+        $application = Application::findOrFail($newApplicationId);
+        $application->valid_id1 = $fileName1;
+        $application->valid_id2 = $fileName2;
+        $application->save();
 
-        return redirect()->route('employment.view_form')->with('success', 'Loan application submitted successfully.');
+        return redirect()->route('application.view_loan')->with('success', 'Loan application submitted successfully.');
     }
 }

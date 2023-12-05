@@ -18,6 +18,7 @@ class Address extends Model
         'city',
         'barangay',  
         'years_living', 
+        'application_id'
     ];
 
     use HasFactory;

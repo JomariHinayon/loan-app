@@ -32,6 +32,9 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
+Route::get('/loans', [ProfileController::class, 'viewLoanList'])->name('profile.loans');
+Route::get('/loans/{id}', [ProfileController::class, 'viewLoan'])->name('profile.loan');
+
 require __DIR__.'/auth.php';
 
 
@@ -39,9 +42,14 @@ require __DIR__.'/auth.php';
 Route::get('/application/form/1', [ApplicationController::class, 'view_form'])->name('application.view_form');
 Route::get('/application/form/2', [AddressController::class, 'view_form'])->name('address.view_form');
 Route::get('/application/form/3', [EmploymentController::class, 'view_form'])->name('employment.view_form');
+Route::get('/application/form/4', [ApplicationController::class, 'view_loan'])->name('application.view_loan');
+Route::get('/application/form/5', [ApplicationController::class, 'view_review'])->name('application.view_review');
 Route::post('/application/form/1/store', [ApplicationController::class, 'store'])->name('application.store');
 Route::post('/application/form/2/store', [AddressController::class, 'store'])->name('address.store');
 Route::post('/application/form/3/store', [EmploymentController::class, 'store'])->name('employment.store');
+Route::post('/application/form/4/store', [ApplicationController::class, 'storeLoan'])->name('application.storeLoan');
+Route::put('/update-loan-status/{application}/{loan_status}', [ApplicationController::class, 'updateLoanStatus'])->name('application.update.loanStatus');
+
 
 
 // admin get 
@@ -50,6 +58,7 @@ Route::get('/admin/register', [AdminController::class, 'showRegister'])->name('a
 Route::get('/admin/users', [AdminController::class, 'showUsers'])->name('admin.users');
 Route::get('/admin', [AdminController::class, 'showDashboard'])->name('admin.dashboard');
 Route::get('/admin/applications', [AdminController::class, 'showApplications'])->name('admin.applications');
+Route::get('/admin/loans', [AdminController::class, 'showloans'])->name('admin.loans');
 Route::get('/admin/users/edit/{id}', [AdminController::class, 'editUser'])->name('user.edit');
 Route::get('/admin/applications/edit/{id}', [AdminController::class, 'editApplication'])->name('application.edit');
 

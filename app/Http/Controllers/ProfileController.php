@@ -8,6 +8,8 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\View\View;
+use App\Models\Application;
+use App\Models\Loan;
 
 class ProfileController extends Controller
 {
@@ -57,4 +59,27 @@ class ProfileController extends Controller
 
         return Redirect::to('/');
     }
+
+    public function viewLoanList(): View
+    {   
+        $userId = Auth::user()->id;
+        $loans = Loan::where('user_id', $userId)->get();
+        $applications = Application::where('user_id', $userId)
+                        ->where(function ($query) {
+                        $query->where('loan_status', 'process')
+                        ->orWhere('loan_status', 'pending')
+                        ->orWhere('loan_status', 'approved');
+                    })
+                    ->get();;
+                                    
+        return view('loan-list', compact('loans', 'applications'));
+    }
+
+    public function viewLoan($id): View
+    {   
+        $loan = Loan::where('id', $id)->first();
+                                    
+        return view('loan', compact('loan'));
+    }
+
 }

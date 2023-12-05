@@ -14,6 +14,9 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\Auth\LoginRequest;
 use App\Models\User;
 use App\Models\Application;
+use App\Models\Address;
+use App\Models\Employment;
+use App\Models\Loan;
 
 class AdminController extends Controller
 {
@@ -56,6 +59,7 @@ class AdminController extends Controller
 
     public function login(LoginRequest $request): RedirectResponse
     {
+        
         $request->authenticate();
 
         $request->session()->regenerate();
@@ -65,7 +69,11 @@ class AdminController extends Controller
 
     public function showDashboard(): View
     {
-        return view('admin.dashboard');
+        $users = User::all();
+        $applications = Application::all();
+        $loans = Loan::all();
+
+        return view('admin.dashboard',  compact('users', 'applications', 'loans'));
     }
 
     public function showUsers(): View
@@ -82,6 +90,14 @@ class AdminController extends Controller
         
 
         return view('admin.applications', ['applications' => $applications]);
+    }
+
+    public function showLoans(): View
+    {
+        $loans = Loan::all();
+        
+
+        return view('admin.loans', ['loans' => $loans]);
     }
 
     public function editUser($id)
@@ -102,8 +118,11 @@ class AdminController extends Controller
     public function editApplication($id)
     {
         $application = Application::findOrFail($id);
+        $address = Address::where('application_id', $application->id)->first();
+        $employment = Employment::where('application_id', $application->id)->first();
 
-        return view('admin.edit.application', compact('application'));
+
+        return view('admin.edit.application', compact('application', 'address', 'employment'));
     }
     
 }

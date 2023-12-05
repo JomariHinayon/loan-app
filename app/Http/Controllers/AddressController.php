@@ -41,7 +41,7 @@ class AddressController extends Controller
             'city' => $request->input('city'),
             'barangay' => $request->input('barangay'),
             'years_living' => $request->input('years_living'),
-            'application_id' => $newApplicationId
+            'application_id' => $newApplicationId,
         ]);
         $new_address->save();
 

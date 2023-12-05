@@ -2,7 +2,7 @@
     <!-- Session Status -->
     <x-auth-session-status class="mb-4" :status="session('status')" />
 
-    <form method="POST" action="{{ route('admin.login.store') }}">
+    <form method="POST" action="{{ route('login') }}">
         @csrf
 
         <!-- Email Address -->
@@ -12,7 +12,7 @@
             <x-input-error :messages="$errors->get('email')" class="mt-2" />
         </div>
         
-    
+        <input type="hidden" name="admin_login" value="1">
         <!-- Password -->
         <div class="mt-4">
             <x-input-label for="password" :value="__('Password')" />

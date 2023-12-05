@@ -25,33 +25,30 @@
                     </div>
                 </th>
                 <th scope="col" class="px-6 py-3">
-                    Application Number
+                    Loan Number
                 </th>
                 <th scope="col" class="px-6 py-3">
-                    First Name
+                    Payment Start
                 </th>
                 <th scope="col" class="px-6 py-3">
-                    Middle Name
+                    Payment End
                 </th>
                 <th scope="col" class="px-6 py-3">
-                    Last Name
+                    Approved Date
                 </th>
                 <th scope="col" class="px-6 py-3">
-                    Phone Number
+                    Months
                 </th>
                 <th scope="col" class="px-6 py-3">
-                    Loan Amount
+                    Monthly Payment
                 </th>
                 <th scope="col" class="px-6 py-3">
-                    Apply Date
-                </th>
-                <th scope="col" class="px-6 py-3">
-                    Status
+                    Fully Paid
                 </th>
             </tr>
         </thead>
         <tbody>
-            @foreach ($applications as $application)
+            @foreach ($loans as $loan)
 
                 <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
                     <td class="w-4 p-4">
@@ -63,52 +60,46 @@
                     <th scope="row" class="flex items-center px-6 py-4 text-gray-900 whitespace-nowrap dark:text-white">
                         <!-- <img class="w-10 h-10 rounded-full" src="/docs/images/people/profile-picture-1.jpg" alt="Jese image"> -->
                         <div class="ps-3">
-                            <a href="{{ route('application.edit', ['id' => $application->id])}}">
-                                <div class="text-base font-semibold">{{ $application->loan_number }}</div>
+                            <a href="{{ route('application.edit', ['id' => $loan->id])}}">
+                                <div class="text-base font-semibold">{{ $loan->application->loan_number }}</div>
                             </a>
                         </div>  
                     </th>
                     <td class="px-6 py-4">
-                    {{ $application->first_name }}
+                    {{ $loan->start_payment_date }}
                     </td>
                     <td class="px-6 py-4">
                         <div class=" me-2">
-                        {{ $application->middle_name }}
+                        {{ $loan->end_payment_date }}
                         </div>
                     </td>
                     <td class="px-6 py-4">
                         <div class=" me-2">
-                        {{ $application->last_name }}
+                        {{ $loan->application->created_at }}
                         </div>
                     </td>
                     <td class="px-6 py-4">
                         <div class=" me-2">
-                        {{ $application->phone_number }}
+                        {{ $loan->application->months_to_pay }}
                         </div>
                     </td>
                     <td class="px-6 py-4">
                         <div class=" me-2">
-                        ₱ {{ $application->loan_amount }}
+                        {{ $loan->application->minimum_payment }}
                         </div>
                     </td>
                     <td class="px-6 py-4">
-                        <div class=" me-2">
-                         {{ $application->created_at }}
-                        </div>
-                    </td>
-                    <td class="px-6 py-4">
-                        <div class=" me-2">
-                        @if ( $application->loan_status == "pending" )
-                        <span class="bg-yellow-600 text-yellow-100 text-sm font-bold  me-2 px-3 py-1 rounded-md ">Pending</span>
-                        @elseif ($application->loan_status == "process" )
-                        <span class="bg-gray-800 text-gray-100 text-sm font-bold  me-2 px-3 py-1 rounded-md ">In Process</span>
-                        @elseif ($application->loan_status == "failed" )
-                        <span class="bg-red-800 text-red-100 text-sm font-bold  me-2 px-3 py-1 rounded-md ">Failed</span>
-                        @elseif ($application->loan_status == "approved" )
-                        <span class="bg-green-600 text-green-100 text-sm font-bold  me-2 px-3 py-1 rounded-md ">Approved</span>
-                        @endif
-                        </div>
-                    </td>
+                                @if($loan->fully_paid)
+                                <svg class="w-6 h-6 text-green-500 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
+                                    <path d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5Zm3.707 8.207-4 4a1 1 0 0 1-1.414 0l-2-2a1 1 0 0 1 1.414-1.414L9 10.586l3.293-3.293a1 1 0 0 1 1.414 1.414Z"/>
+                                </svg>
+                                @else
+                                <svg class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 20">
+                                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m7 10 2 2 4-4m6 2a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"/>
+                                </svg>
+                                @endif
+                            </td>
+                   
                 </tr>
             @endforeach
         </tbody>

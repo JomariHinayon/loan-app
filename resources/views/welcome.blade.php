@@ -4,11 +4,13 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <title>Laravel</title>
+        <title>Loan App</title>
 
         <!-- Fonts -->
         <link rel="preconnect" href="https://fonts.bunny.net">
         <link href="https://fonts.bunny.net/css?family=figtree:400,600&display=swap" rel="stylesheet" />
+        <link href="https://fonts.bunny.net/css?family=figtree:400,600&display=swap" rel="stylesheet" />
+        <link rel="stylesheet" href="{{asset('css/main.css')}}">
         @vite(['resources/css/app.css','resources/js/app.js'])
 
    
@@ -33,8 +35,13 @@
             <div class="container mx-auto">
 
                 <!--HERO SECTION -->
-                <section>
-                <div class="grid grid-cols-2 p-16">
+                <section class="relative">
+                <!-- <div class="custom-shape-divider-bottom-1701312996 z-[1]">
+                    <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
+                        <path d="M985.66,92.83C906.67,72,823.78,31,743.84,14.19c-82.26-17.34-168.06-16.33-250.45.39-57.84,11.73-114,31.07-172,41.86A600.21,600.21,0,0,1,0,27.35V120H1200V95.8C1132.19,118.92,1055.71,111.31,985.66,92.83Z" class="shape-fill"></path>
+                    </svg>
+                </div> -->
+                <div id="hero-section__bg" class="grid grid-cols-2 p-16">
                     <div class="p-6 bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
                         <a href="#">
                             <h5 class="mb-2 text-2xl font-bold ">Online Lending Platform For You</h5>
@@ -74,13 +81,13 @@
                                         <a href="#" class=" block px-4 py-2 hover:bg-gray-500 bg-gray-100">24 months</a>
                                     </li>
                                     <li>
-                                        <a href="#" class=" block px-4 py-2 hover:bg-gray-500 bg-gray-100">36 months</a>
+                                        <a href="#" class=" block px-4 py-2 hover:bg-gray-500 bg-gray-100">100 months</a>
                                     </li>
                                 </ul>
                             </div>
                             <div class="py-5 font-semibold">
                                 <h4>Payment terms up to 36 months</h4>
-                            </div>
+                        </div>
                         </div>
                         <div>
                              <a href="{{route('register')}}" type="button" class="px-6 py-3.5 text-white font-medium bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 rounded-lg text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 w-[100%]">

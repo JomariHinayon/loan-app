@@ -21,6 +21,18 @@ return new class extends Migration
             $table->string('phone_number');
             $table->date('birthday');
             $table->string('loan_number')->unique()->nullable();
+            $table->integer('loan_amount');
+            $table->integer('months_to_pay');
+            $table->text('loan_purpose');
+            $table->integer('interest_amount');
+            $table->integer('minimum_payment');
+            $table->integer('full_payment');
+            $table->dateTime('first_payment_date')->nullable();
+            $table->string('loan_status');
+            $table->string('valid_id1');
+            $table->string('valid_id2');
+            $table->unsignedBigInteger('user_id')->nullable();
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
         });
     }
 
