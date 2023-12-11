@@ -50,7 +50,6 @@ class AuthenticatedSessionController extends Controller
      */
     public function destroy(Request $request): RedirectResponse
     {   
-        dd('Logout method is executed');
         // Logout the user from the 'web' guard
         if (auth()->guard('web')->check()) {
             auth()->guard('web')->logout();

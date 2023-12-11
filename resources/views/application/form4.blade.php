@@ -61,8 +61,8 @@
 
                 <div class="grid gap-4 sm:grid-cols-2 sm:gap-6">
                     <div class="col-span-2">
-                        <label for="loan_amount" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Loan Amount (Maximum of ₱50,000)</label>
-                        <input type="number" name="loan_amount" id="name" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" placeholder="" required="">
+                        <label for="loan_amount" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Loan Amount (₱10,000 - ₱50,000)</label>
+                        <input type="number" name="loan_amount" id="loan_amount" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" placeholder="" required="">
                     </div>
                     <div class="col-span-2">
                         <label for="months_to_pay" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Months To Pay</label>
@@ -76,20 +76,20 @@
                         </select>
                     </div>
                     <div class="col-span-2">
-                        <label for="company_phone" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Interest Amount</label>
-                        <input type="number" name="interest_amount" id="name" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" placeholder="" required="">
+                        <label for="interest_amount" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Interest Amount</label>
+                        <input readonly type="number" name="interest_amount" id="interest_amount" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" placeholder="" required="">
                     </div>
                     <div class="col-span-2">
-                        <label for="company_phone" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Interest</label>
-                        <input type="text" name="interest" id="name" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" placeholder="" required="">
+                        <label for="interest" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Interest</label>
+                        <input readonly type="text" name="interest" value="5%" id="interest" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" placeholder="" required="">
                     </div>
                     <div class="col-span-2">
-                        <label for="company_phone" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Minimum Payment</label>
-                        <input type="number" name="minimum_payment" id="name" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" placeholder="" required="">
+                        <label for="minimum_payment" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Monthly Payment</label>
+                        <input readonly type="number" name="minimum_payment" id="minimum_payment" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" placeholder="" required="">
                     </div>
                     <div class="col-span-2">
                         <label for="full_payment" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Full Payment</label>
-                        <input type="number" name="full_payment" id="full_payment" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" placeholder="" required="">
+                        <input readonly type="number" name="full_payment" id="full_payment" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" placeholder="" required="">
                     </div>
                     <div class="sm:col-span-2">
                         <label for="description" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Purpose of Loan</label>
@@ -106,6 +106,37 @@
         </div>
     </section>
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.2.0/datepicker.min.js"></script>
+
 
 </x-app-layout>
+
+<script>
+    // Get the select element
+    var selectElement = document.getElementById("months_to_pay");
+    // Get the input element
+    var loanAmountInput = document.getElementById("loan_amount");
+
+    // Add an event listener to the change event
+    selectElement.addEventListener("change", function () {
+        // Get the selected option
+        var selectedOption = selectElement.options[selectElement.selectedIndex].value;
+        var loanAmountValue = loanAmountInput.value;
+
+        var interest= parseInt(loanAmountValue) * 0.05 
+        var fullPayment = interest + parseInt(loanAmountValue)
+        var minPayment = fullPayment / parseInt(selectedOption)
+        
+
+        // Set the value of the minimum payment field
+        var minimumPaymentInput = document.getElementById("interest_amount");
+        minimumPaymentInput.value = interest;
+        var fullPaymentInput = document.getElementById("full_payment");
+        fullPaymentInput.value = fullPayment;
+        var minPaymentInput = document.getElementById("minimum_payment");
+        minPaymentInput.value = minPayment;
+
+        console.log(interest)
+        console.log("Loan Amount:", loanAmountValue);
+        console.log("Selected option:", selectedOption);
+    });
+</script>

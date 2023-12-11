@@ -67,14 +67,6 @@ class ApplicationController extends Controller
         // dd($request->all());
         
         // validate data
-        $request->validate([
-            'loan_amount' => 'required|integer',
-            'loan_purpose' => 'required|string',
-            'interest_amount' => 'required|integer',
-            'minimum_payment' => 'required|integer',
-            'full_payment' => 'required|integer',
-            'months_to_pay' => 'required|integer',
-        ]);
 
         $newApplicationId = $request->session()->get('new_application_id');
         $application = Application::findOrFail($newApplicationId);

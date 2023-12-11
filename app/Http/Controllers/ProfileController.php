@@ -10,6 +10,7 @@ use Illuminate\Support\Facades\Redirect;
 use Illuminate\View\View;
 use App\Models\Application;
 use App\Models\Loan;
+use App\Models\Payment;
 
 class ProfileController extends Controller
 {
@@ -80,6 +81,23 @@ class ProfileController extends Controller
         $loan = Loan::where('id', $id)->first();
                                     
         return view('loan', compact('loan'));
+    }
+
+    public function viewPayment(): View
+    {      
+        $userId = Auth::user()->id;
+        $payments = Payment::whereHas('loan', function ($query) use ($userId) {
+            $query->where('user_id', $userId);
+        })->get();
+        $applications = Application::where('user_id', $userId)
+                        ->where(function ($query) {
+                        $query->where('loan_status', 'process')
+                        ->orWhere('loan_status', 'pending')
+                        ->orWhere('loan_status', 'approved');
+                    })
+                    ->get();;
+                                    
+        return view('payments', compact('payments', 'applications'));
     }
 
 }

@@ -33,6 +33,7 @@ Route::middleware('auth')->group(function () {
 });
 
 Route::get('/loans', [ProfileController::class, 'viewLoanList'])->name('profile.loans');
+Route::get('/payments', [ProfileController::class, 'viewPayment'])->name('profile.payment');
 Route::get('/loans/{id}', [ProfileController::class, 'viewLoan'])->name('profile.loan');
 
 require __DIR__.'/auth.php';
@@ -59,6 +60,7 @@ Route::get('/admin/users', [AdminController::class, 'showUsers'])->name('admin.u
 Route::get('/admin', [AdminController::class, 'showDashboard'])->name('admin.dashboard');
 Route::get('/admin/applications', [AdminController::class, 'showApplications'])->name('admin.applications');
 Route::get('/admin/loans', [AdminController::class, 'showloans'])->name('admin.loans');
+Route::get('/admin/payments', [AdminController::class, 'showPayments'])->name('admin.payments');
 Route::get('/admin/users/edit/{id}', [AdminController::class, 'editUser'])->name('user.edit');
 Route::get('/admin/applications/edit/{id}', [AdminController::class, 'editApplication'])->name('application.edit');
 

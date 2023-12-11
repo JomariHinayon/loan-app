@@ -17,6 +17,8 @@ use App\Models\Application;
 use App\Models\Address;
 use App\Models\Employment;
 use App\Models\Loan;
+use App\Models\Payment;
+
 
 class AdminController extends Controller
 {
@@ -98,6 +100,14 @@ class AdminController extends Controller
         
 
         return view('admin.loans', ['loans' => $loans]);
+    }
+
+    public function showPayments(): View
+    {
+        $payments = Payment::all();
+        
+
+        return view('admin.payments', ['payments' => $payments]);
     }
 
     public function editUser($id)
