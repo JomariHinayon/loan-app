@@ -66,7 +66,7 @@ class AdminController extends Controller
 
         $request->session()->regenerate();
 
-        return redirect()->intended(RouteServiceProvider::HOME);
+        return redirect()->route('admin.dashboard');
     }
 
     public function showDashboard(): View

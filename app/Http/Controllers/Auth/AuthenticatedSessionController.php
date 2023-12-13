@@ -25,9 +25,9 @@ class AuthenticatedSessionController extends Controller
      */
     public function store(LoginRequest $request): RedirectResponse
     {
-        if ($this->attemptAdminLogin($request)) {
-            return redirect()->intended('/admin'); // Redirect to the admin dashboard
-        }
+        // if ($this->attemptAdminLogin($request)) {
+        //     return redirect()->intended('/admin'); // Redirect to the admin dashboard
+        // }
 
         $request->authenticate();
 
@@ -50,13 +50,10 @@ class AuthenticatedSessionController extends Controller
      */
     public function destroy(Request $request): RedirectResponse
     {   
+        // dd(auth()->guard('admin'));
         // Logout the user from the 'web' guard
         if (auth()->guard('web')->check()) {
             auth()->guard('web')->logout();
-        }
-        
-        if (auth()->guard('admin')->check()) {
-            auth()->guard('admin')->logout();
         }
 
         // Invalidate the session

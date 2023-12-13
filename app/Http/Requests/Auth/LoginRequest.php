@@ -43,12 +43,14 @@ class LoginRequest extends FormRequest
 
         // Check if the login attempt is for an admin
         $isForAdmin = $this->boolean('admin_login');
+        // dd($isForAdmin);
 
         if ($isForAdmin) {
-            $guard = 'admin'; // Use the 'admin' guard for admin login
+            $guard = 'admin'; 
         } else {
-            $guard = 'web'; // Use the 'web' guard for regular user login
+            $guard = 'web'; 
         }
+
 
         if (! Auth::guard($guard)->attempt($this->only('email', 'password'), $this->boolean('remember'))) {
             RateLimiter::hit($this->throttleKey());

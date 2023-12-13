@@ -4,7 +4,7 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <title>Loan App</title>
+        <title>Loan Applicaiton</title>
 
         <!-- Fonts -->
         <link rel="preconnect" href="https://fonts.bunny.net">
@@ -173,25 +173,31 @@
                                     <svg class="flex-shrink-0 w-4 h-4 text-blue-600 dark:text-blue-500" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
                                     <path d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5Zm3.707 8.207-4 4a1 1 0 0 1-1.414 0l-2-2a1 1 0 0 1 1.414-1.414L9 10.586l3.293-3.293a1 1 0 0 1 1.414 1.414Z"/>
                                     </svg>
-                                    <span class="text-base font-normal leading-tight text-gray-500 dark:text-gray-400 ms-3">20GB Cloud storage</span>
+                                    <span class="text-base font-normal leading-tight text-gray-500 dark:text-gray-400 ms-3">Monthly income of atleast ₱15,000</span>
                                 </li>
                                 <li class="flex">
                                     <svg class="flex-shrink-0 w-4 h-4 text-blue-600 dark:text-blue-500" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
                                     <path d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5Zm3.707 8.207-4 4a1 1 0 0 1-1.414 0l-2-2a1 1 0 0 1 1.414-1.414L9 10.586l3.293-3.293a1 1 0 0 1 1.414 1.414Z"/>
                                     </svg>
-                                    <span class="text-base font-normal leading-tight text-gray-500 dark:text-gray-400 ms-3">Integration help</span>
+                                    <span class="text-base font-normal leading-tight text-gray-500 dark:text-gray-400 ms-3">Profile Information Legitimacy</span>
                                 </li>
-                                    <li class="flex line-through decoration-gray-500">
-                                    <svg class="flex-shrink-0 w-4 h-4 text-gray-400 dark:text-gray-500" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
+                                <li class="flex">
+                                    <svg class="flex-shrink-0 w-4 h-4 text-blue-600 dark:text-blue-500" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
                                     <path d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5Zm3.707 8.207-4 4a1 1 0 0 1-1.414 0l-2-2a1 1 0 0 1 1.414-1.414L9 10.586l3.293-3.293a1 1 0 0 1 1.414 1.414Z"/>
                                     </svg>
-                                    <span class="text-base font-normal leading-tight text-gray-500 ms-3">Sketch Files</span>
+                                    <span class="text-base font-normal leading-tight text-gray-500 dark:text-gray-400 ms-3">Monthly income of atleast ₱15,000</span>
                                 </li>
-                                <li class="flex line-through decoration-gray-500">
-                                    <svg class="flex-shrink-0 w-4 h-4 text-gray-400 dark:text-gray-500" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
+                                <li class="flex">
+                                    <svg class="flex-shrink-0 w-4 h-4 text-blue-600 dark:text-blue-500" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
                                     <path d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5Zm3.707 8.207-4 4a1 1 0 0 1-1.414 0l-2-2a1 1 0 0 1 1.414-1.414L9 10.586l3.293-3.293a1 1 0 0 1 1.414 1.414Z"/>
                                     </svg>
-                                    <span class="text-base font-normal leading-tight text-gray-500 ms-3">API Access</span>
+                                    <span class="text-base font-normal leading-tight text-gray-500 dark:text-gray-400 ms-3">Monthly income of atleast ₱15,000</span>
+                                </li>
+                                <li class="flex">
+                                    <svg class="flex-shrink-0 w-4 h-4 text-blue-600 dark:text-blue-500" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
+                                    <path d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5Zm3.707 8.207-4 4a1 1 0 0 1-1.414 0l-2-2a1 1 0 0 1 1.414-1.414L9 10.586l3.293-3.293a1 1 0 0 1 1.414 1.414Z"/>
+                                    </svg>
+                                    <span class="text-base font-normal leading-tight text-gray-500 dark:text-gray-400 ms-3">Monthly income of atleast ₱15,000</span>
                                 </li>
                             </ul>
                             <a href="{{route('login')}}" class="text-white bg-blue-600 hover:bg-blue-700 focus:ring-4 focus:outline-none focus:ring-blue-200 dark:focus:ring-blue-900 font-medium rounded-lg text-sm px-5 py-2.5 inline-flex justify-center w-full text-center">Choose plan</a>
@@ -200,8 +206,71 @@
                     </div>
                 </section>
 
-                
-                
+                <!-- FAQ's -->
+                <section>
+                    <div id="accordion-open" class="py-16" data-accordion="open">
+                    <div class="p-16">
+                    <div class=" text-center w-100 ">
+                            <h1 class="text-gray-800 text-center text-4xl font-bold">Frequent Ask Questions's (FAQs)</h1>
+                        </div>
+                    </div>
+                    <h2 id="accordion-open-heading-1">
+                        <button type="button" class="flex items-center justify-between w-full p-5 font-medium rtl:text-right text-gray-500 border border-b-0 border-gray-200 rounded-t-xl focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-800 bg-white" data-accordion-target="#accordion-open-body-1" aria-expanded="true" aria-controls="accordion-open-body-1">
+                        <span class="flex items-center bg-white"><svg class="w-5 h-5 me-2 shrink-0" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-8-3a1 1 0 00-.867.5 1 1 0 11-1.731-1A3 3 0 0113 8a3.001 3.001 0 01-2 2.83V11a1 1 0 11-2 0v-1a1 1 0 011-1 1 1 0 100-2zm0 8a1 1 0 100-2 1 1 0 000 2z" clip-rule="evenodd"></path></svg>How hard is it to get a personal loan?</span>
+                        <svg data-accordion-icon class="w-3 h-3 rotate-180 shrink-0" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 6">
+                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5 5 1 1 5"/>
+                        </svg>
+                        </button>
+                    </h2>
+                    <div id="accordion-open-body-1" class="hidden" aria-labelledby="accordion-open-heading-1">
+                        <div class="p-5 border border-b-0 border-gray-200 bg-white">
+                        <p class="mb-2 text-gray-500 dark:text-gray-400">It can be easy or difficult to get a personal loan depending on your qualifications, the loan you’re applying for, the lender and the economic environment. If you have a high income and credit score, it can be easy to get a personal loan. It can be harder to get approved if you’re applying for a larger loan or have a low income or credit score.</p>
+                        </div>
+                    </div>
+                    <h2 id="accordion-open-heading-1">
+                        <button type="button" class="flex items-center justify-between w-full p-5 font-medium rtl:text-right text-gray-500 border border-b-0 border-gray-200 rounded-t-xl focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-800 bg-white" data-accordion-target="#accordion-open-body-1" aria-expanded="true" aria-controls="accordion-open-body-1">
+                        <span class="flex items-center bg-white"><svg class="w-5 h-5 me-2 shrink-0" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-8-3a1 1 0 00-.867.5 1 1 0 11-1.731-1A3 3 0 0113 8a3.001 3.001 0 01-2 2.83V11a1 1 0 11-2 0v-1a1 1 0 011-1 1 1 0 100-2zm0 8a1 1 0 100-2 1 1 0 000 2z" clip-rule="evenodd"></path></svg>How long does it take to get a personal loan?</span>
+                        <svg data-accordion-icon class="w-3 h-3 rotate-180 shrink-0" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 6">
+                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5 5 1 1 5"/>
+                        </svg>
+                        </button>
+                    </h2>
+                    <div id="accordion-open-body-1" class="hidden" aria-labelledby="accordion-open-heading-1">
+                        <div class="p-5 border border-b-0 border-gray-200 bg-white">
+                        <p class="mb-2 text-gray-500 dark:text-gray-400">Personal loan turnaround times vary between online lenders, traditional banks and credit unions. Online lenders are typically the fastest, with some lenders offering same-day approvals and same- or next-day funding. Traditional banks and credit unions, on the other hand, may take up to seven days to fund.</p>
+                        </div>
+                    </div>
+                    <h2 id="accordion-open-heading-1">
+                        <button type="button" class="flex items-center justify-between w-full p-5 font-medium rtl:text-right text-gray-500 border border-b-0 border-gray-200 rounded-t-xl focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-800 bg-white" data-accordion-target="#accordion-open-body-1" aria-expanded="true" aria-controls="accordion-open-body-1">
+                        <span class="flex items-center bg-white"><svg class="w-5 h-5 me-2 shrink-0" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-8-3a1 1 0 00-.867.5 1 1 0 11-1.731-1A3 3 0 0113 8a3.001 3.001 0 01-2 2.83V11a1 1 0 11-2 0v-1a1 1 0 011-1 1 1 0 100-2zm0 8a1 1 0 100-2 1 1 0 000 2z" clip-rule="evenodd"></path></svg>Can you get a personal loan without income proof?</span>
+                        <svg data-accordion-icon class="w-3 h-3 rotate-180 shrink-0" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 6">
+                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5 5 1 1 5"/>
+                        </svg>
+                        </button>
+                    </h2>
+                    <div id="accordion-open-body-1" class="hidden" aria-labelledby="accordion-open-heading-1">
+                        <div class="p-5 border border-b-0 border-gray-200 bg-white">
+                        <p class="mb-2 text-gray-500 dark:text-gray-400">Not only is your income a crucial part of the qualification process on the lender’s side, but it’s also essential to your ability to repay your loan. Most lenders require proof of income to confirm your ability to meet repayment obligations. If you don’t have a job or an alternate source of income and can’t afford to take out a personal loan, it’s best to avoid taking on additional debt.</p>
+                        </div>
+                    </div>
+                    <h2 id="accordion-open-heading-1">
+                        <button type="button" class="flex items-center justify-between w-full p-5 font-medium rtl:text-right text-gray-500 border border-b-0 border-gray-200 rounded-t-xl focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-800 bg-white" data-accordion-target="#accordion-open-body-1" aria-expanded="true" aria-controls="accordion-open-body-1">
+                        <span class="flex items-center bg-white"><svg class="w-5 h-5 me-2 shrink-0" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-8-3a1 1 0 00-.867.5 1 1 0 11-1.731-1A3 3 0 0113 8a3.001 3.001 0 01-2 2.83V11a1 1 0 11-2 0v-1a1 1 0 011-1 1 1 0 100-2zm0 8a1 1 0 100-2 1 1 0 000 2z" clip-rule="evenodd"></path></svg>What disqualifies you from getting a personal loan?</span>
+                        <svg data-accordion-icon class="w-3 h-3 rotate-180 shrink-0" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 6">
+                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5 5 1 1 5"/>
+                        </svg>
+                        </button>
+                    </h2>
+                    <div id="accordion-open-body-1" class="hidden" aria-labelledby="accordion-open-heading-1">
+                        <div class="p-5 border border-b-0 border-gray-200 bg-white">
+                        <p class="mb-2 text-gray-500 dark:text-gray-400">Personal loan denials vary, but the most common reasons relate to your credit score, credit history and income. Prospective borrowers who have poor, damaged or no credit typically find it difficult to qualify for a personal loan. However, even if you have good credit that doesn’t mean you’ll qualify for a personal loan. If your income doesn’t prove that you can afford monthly payments, lenders are generally not willing to take on the risk.</p>
+                        </div>
+                    </div>
+                    </div>
+                </section>
+
+
+
 
             </div>
             <!-- END: Content -->
