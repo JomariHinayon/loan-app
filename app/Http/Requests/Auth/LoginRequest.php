@@ -41,7 +41,18 @@ class LoginRequest extends FormRequest
     {
         $this->ensureIsNotRateLimited();
 
-        if (! Auth::attempt($this->only('email', 'password'), $this->boolean('remember'))) {
+        // Check if the login attempt is for an admin
+        $isForAdmin = $this->boolean('admin_login');
+        // dd($isForAdmin);
+
+        if ($isForAdmin) {
+            $guard = 'admin'; 
+        } else {
+            $guard = 'web'; 
+        }
+
+
+        if (! Auth::guard($guard)->attempt($this->only('email', 'password'), $this->boolean('remember'))) {
             RateLimiter::hit($this->throttleKey());
 
             throw ValidationException::withMessages([
