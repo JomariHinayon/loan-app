@@ -70,4 +70,6 @@
 
         </div>
     </div>
+
+    @extends('footer')
 </x-app-layout>

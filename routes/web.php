@@ -5,6 +5,7 @@ use App\Http\Controllers\ApplicationController;
 use App\Http\Controllers\EmploymentController;
 use App\Http\Controllers\AddressController;
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\PaymentController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -62,6 +63,9 @@ Route::get('/admin/loans', [AdminController::class, 'showloans'])->name('admin.l
 Route::get('/admin/payments', [AdminController::class, 'showPayments'])->name('admin.payments');
 Route::get('/admin/users/edit/{id}', [AdminController::class, 'editUser'])->name('user.edit');
 Route::get('/admin/applications/edit/{id}', [AdminController::class, 'editApplication'])->name('application.edit');
+Route::get('/admin/payments/create', [PaymentController::class, 'createPaymentView'])->name('admin.payments.create');
+Route::post('/admin/payments/add', [PaymentController::class, 'addPayment'])->name('admin.payments.add');
+
 
 // admin post
 Route::post('/admin/login', [AdminController::class, 'login'])->name('admin.login.store');

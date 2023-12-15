@@ -14,6 +14,10 @@
             </div>
             <input type="text" id="table-search-users" class="block p-2 ps-10 text-sm text-gray-900 border border-gray-300 rounded-lg w-80 bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Search for users">
         </div>
+        <div>
+            <a href="{{route('admin.payments.create')}}" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800">
+                Create Payment</a>
+        </div>
     </div>
     <table class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
         <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
@@ -36,6 +40,9 @@
                 <th scope="col" class="px-6 py-3">
                     Paid Month
                 </th>
+                <th scope="col" class="px-6 py-3">
+                    Payment Method
+                </th>
             </tr>
         </thead>
         <tbody>
@@ -51,13 +58,11 @@
                     <th scope="row" class="flex items-center px-6 py-4 text-gray-900 whitespace-nowrap dark:text-white">
                         <!-- <img class="w-10 h-10 rounded-full" src="/docs/images/people/profile-picture-1.jpg" alt="Jese image"> -->
                         <div class="ps-3">
-                            <a href="{{ route('application.edit', ['id' => $payment->loan->id])}}">
                                 <div class="text-base font-semibold">{{ $payment->loan->application->loan_number }}</div>
-                            </a>
                         </div>  
                     </th>
                     <td class="px-6 py-4">
-                    {{ $payment->amount_paid }}
+                    ₱ {{ $payment->amount_paid }}
                     </td>
                     <td class="px-6 py-4">
                         <div class=" me-2">
@@ -67,6 +72,11 @@
                     <td class="px-6 py-4">
                         <div class=" me-2">
                         {{ $payment->month_paid }}
+                        </div>
+                    </td>
+                    <td class="px-6 py-4">
+                        <div class=" me-2">
+                        {{ $payment->payment_method }}
                         </div>
                     </td>
                 

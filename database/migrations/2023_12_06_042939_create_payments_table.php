@@ -18,6 +18,9 @@ return new class extends Migration
             $table->foreign('loan_id')->references('id')->on('loan')->onDelete('cascade');
             $table->integer('amount_paid');
             $table->integer('month_paid');
+            $table->string('phone_number');
+            $table->string('payment_method');
+            $table->string('pay_date');
         });
     }
 

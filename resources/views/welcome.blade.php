@@ -10,67 +10,8 @@
         <link rel="preconnect" href="https://fonts.bunny.net">
         <link href="https://fonts.bunny.net/css?family=figtree:400,600&display=swap" rel="stylesheet" />
         <link href="https://fonts.bunny.net/css?family=figtree:400,600&display=swap" rel="stylesheet" />
-        <link rel="stylesheet" href="{{asset('css/main.css')}}">
         @vite(['resources/css/app.css','resources/js/app.js'])
 
-         <!--Start:carousel_slider-->
-                      
-
-                    <div id="default-carousel" class="relative w-full" data-carousel="slide">
-                        <!-- Carousel wrapper -->
-                        <div class="relative h-56 overflow-hidden rounded-lg md:h-96">
-                             <!-- Item 1 -->
-                            <div class="hidden duration-700 ease-in-out" data-carousel-item>
-                                <img src="/images/poster_1.png" class="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="...">
-                            </div>
-                            <!-- Item 2 -->
-                            <div class="hidden duration-700 ease-in-out" data-carousel-item>
-                                <img src="/images/poster_2.png" class="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="...">
-                            </div>
-                            <!-- Item 3 -->
-                            <div class="hidden duration-700 ease-in-out" data-carousel-item>
-                                <img src="/images/OLMS.png" class="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="...">
-                            </div>
-                            <!-- Item 4 -->
-                            <div class="hidden duration-700 ease-in-out" data-carousel-item>
-                                <img src="/images/poster_4.png" class="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="...">
-                            </div>
-                            <!-- Item 5 -->
-                            <div class="hidden duration-700 ease-in-out" data-carousel-item>
-                                <img src="/images/contact_us.png" class="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="...">
-                            </div>
-                        </div>
-                        <!-- Slider indicators -->
-                        <div class="absolute z-30 flex -translate-x-1/2 bottom-5 left-1/2 space-x-3 rtl:space-x-reverse">
-                            <button type="button" class="w-3 h-3 rounded-full" aria-current="true" aria-label="Slide 1" data-carousel-slide-to="0"></button>
-                            <button type="button" class="w-3 h-3 rounded-full" aria-current="false" aria-label="Slide 2" data-carousel-slide-to="1"></button>
-                            <button type="button" class="w-3 h-3 rounded-full" aria-current="false" aria-label="Slide 3" data-carousel-slide-to="2"></button>
-                            <button type="button" class="w-3 h-3 rounded-full" aria-current="false" aria-label="Slide 4" data-carousel-slide-to="3"></button>
-                            <button type="button" class="w-3 h-3 rounded-full" aria-current="false" aria-label="Slide 5" data-carousel-slide-to="4"></button>
-                        </div>
-                        <!-- Slider controls -->
-                        <button type="button" class="absolute top-0 start-0 z-30 flex items-center justify-center h-full px-4 cursor-pointer group focus:outline-none" data-carousel-prev>
-                            <span class="inline-flex items-center justify-center w-10 h-10 rounded-full bg-white/30 dark:bg-gray-800/30 group-hover:bg-white/50 dark:group-hover:bg-gray-800/60 group-focus:ring-4 group-focus:ring-white dark:group-focus:ring-gray-800/70 group-focus:outline-none">
-                                <svg class="w-4 h-4 text-white dark:text-gray-800 rtl:rotate-180" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 6 10">
-                                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 1 1 5l4 4"/>
-                                </svg>
-                                <span class="sr-only">Previous</span>
-                            </span>
-                        </button>
-                        <button type="button" class="absolute top-0 end-0 z-30 flex items-center justify-center h-full px-4 cursor-pointer group focus:outline-none" data-carousel-next>
-                            <span class="inline-flex items-center justify-center w-10 h-10 rounded-full bg-white/30 dark:bg-gray-800/30 group-hover:bg-white/50 dark:group-hover:bg-gray-800/60 group-focus:ring-4 group-focus:ring-white dark:group-focus:ring-gray-800/70 group-focus:outline-none">
-                                <svg class="w-4 h-4 text-white dark:text-gray-800 rtl:rotate-180" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 6 10">
-                                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 9 4-4-4-4"/>
-                                </svg>
-                                <span class="sr-only">Next</span>
-                            </span>
-                        </button>
-                    </div>
-
-            <!--END:CArousel_slider-->
-
-
-   
     </head>
     <body class="antialiased">
 
@@ -91,7 +32,7 @@
 
 
             <!-- START: Content -->
-            <div class="container mx-auto">
+            <div class="container mx-auto mt-5">
 
                 <!--HERO SECTION -->
                 <section class="relative">
@@ -110,7 +51,7 @@
                         <div id="#mySlider" class="relative mb-6">
                             <label for="labels-range-input" class="sr-only">Labels range</label>
                             <input id="labels-range-input" type="range" value="1000" min="100" max="1500" class="w-full h-2 p-1 bg-blue-700 rounded-lg appearance-none cursor-pointer dark:bg-gray-700">
-                            <span class="text-sm text-gray-800 absolute start-0 -bottom-6">₱5,000</span>
+                            <span class="text-sm text-gray-800 absolute start-0 -bottom-6">₱10,000</span>
                             <span class="text-sm text-gray-800 absolute end-0 -bottom-6">₱50,000</span>
                         </div>
 
@@ -128,24 +69,24 @@
                             <div id="dropdownDelay" class="z-10 hidden divide-y divide-gray-100 rounded-lg">
                                 <ul class="py-2 text-sm text-gray-700 w-[200px]" aria-labelledby="dropdownDelayButton">
                                     <li>
-                                        <a href="#" class="block px-4 py-2 hover:bg-gray-500 bg-gray-100">6 months</a>
+                                        <a href="#" class="block px-4 py-2 hover:bg-gray-500 bg-gray-100">9 months</a>
                                     </li>
                                     <li>
-                                        <a href="#" class="block  px-4 py-2 hover:bg-gray-500 bg-gray-100">9 months</a>
-                                    </li>
-                                    <li>
-                                        <a href="#" class=" block px-4 py-2 hover:bg-gray-500 bg-gray-100">12 months</a>
+                                        <a href="#" class="block  px-4 py-2 hover:bg-gray-500 bg-gray-100">12 months</a>
                                     </li>
                                     <li>
                                         <a href="#" class=" block px-4 py-2 hover:bg-gray-500 bg-gray-100">24 months</a>
                                     </li>
                                     <li>
-                                        <a href="#" class=" block px-4 py-2 hover:bg-gray-500 bg-gray-100">100 months</a>
+                                        <a href="#" class=" block px-4 py-2 hover:bg-gray-500 bg-gray-100">32 months</a>
+                                    </li>
+                                    <li>
+                                        <a href="#" class=" block px-4 py-2 hover:bg-gray-500 bg-gray-100">46 months</a>
                                     </li>
                                 </ul>
                             </div>
                             <div class="py-5 font-semibold">
-                                <h4>Payment terms up to 36 months</h4>
+                                <h4>Payment terms up to 46 months</h4>
                         </div>
                         </div>
                         <div>
@@ -160,6 +101,7 @@
                     </div>
                 </div>
                 </section>
+
 
                 <!-- PROCESS APPLICATION -->
                 <section>
@@ -205,6 +147,64 @@
                     </div>
                 </section>
 
+                <section>
+
+<!--Start:carousel_slider-->
+   <div id="default-carousel" class="relative w-full h-[90vh] my-10" data-carousel="slide">
+       <!-- Carousel wrapper -->
+       <div class="relative h-full overflow-hidden rounded-lg h-[90vh]">
+            <!-- Item 1 -->
+           <div class="hidden duration-700 ease-in-out" data-carousel-item>
+               <img src="/images/poster_1.png" class="absolute h-full block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="...">
+           </div>
+           <!-- Item 2 -->
+           <div class="hidden duration-700 ease-in-out" data-carousel-item>
+               <img src="/images/poster_2.png" class="absolute h-full block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="...">
+           </div>
+           <!-- Item 3 -->
+           <div class="hidden duration-700 ease-in-out" data-carousel-item>
+               <img src="/images/OLMS.png" class="absolute block h-full w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="...">
+           </div>
+           <!-- Item 4 -->
+           <div class="hidden duration-700 ease-in-out" data-carousel-item>
+               <img src="/images/poster_4.png" class="absolute block h-full w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="...">
+           </div>
+           <!-- Item 5 -->
+           <div class="hidden duration-700 ease-in-out" data-carousel-item>
+               <img src="/images/contact_us.png" class="absolute block h-full w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="...">
+           </div>
+       </div>
+       <!-- Slider indicators -->
+       <div class="absolute z-30 flex -translate-x-1/2 bottom-5 left-1/2 space-x-3 rtl:space-x-reverse">
+           <button type="button" class="w-3 h-3 rounded-full" aria-current="true" aria-label="Slide 1" data-carousel-slide-to="0"></button>
+           <button type="button" class="w-3 h-3 rounded-full" aria-current="false" aria-label="Slide 2" data-carousel-slide-to="1"></button>
+           <button type="button" class="w-3 h-3 rounded-full" aria-current="false" aria-label="Slide 3" data-carousel-slide-to="2"></button>
+           <button type="button" class="w-3 h-3 rounded-full" aria-current="false" aria-label="Slide 4" data-carousel-slide-to="3"></button>
+           <button type="button" class="w-3 h-3 rounded-full" aria-current="false" aria-label="Slide 5" data-carousel-slide-to="4"></button>
+       </div>
+       <!-- Slider controls -->
+       <button type="button" class="absolute top-0 start-0 z-30 flex items-center justify-center h-full px-4 cursor-pointer group focus:outline-none" data-carousel-prev>
+           <span class="inline-flex items-center justify-center w-10 h-10 rounded-full bg-white/30 dark:bg-gray-800/30 group-hover:bg-white/50 dark:group-hover:bg-gray-800/60 group-focus:ring-4 group-focus:ring-white dark:group-focus:ring-gray-800/70 group-focus:outline-none">
+               <svg class="w-4 h-4 text-white dark:text-gray-800 rtl:rotate-180" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 6 10">
+                   <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 1 1 5l4 4"/>
+               </svg>
+               <span class="sr-only">Previous</span>
+           </span>
+       </button>
+       <button type="button" class="absolute top-0 end-0 z-30 flex items-center justify-center h-full px-4 cursor-pointer group focus:outline-none" data-carousel-next>
+           <span class="inline-flex items-center justify-center w-10 h-10 rounded-full bg-white/30 dark:bg-gray-800/30 group-hover:bg-white/50 dark:group-hover:bg-gray-800/60 group-focus:ring-4 group-focus:ring-white dark:group-focus:ring-gray-800/70 group-focus:outline-none">
+               <svg class="w-4 h-4 text-white dark:text-gray-800 rtl:rotate-180" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 6 10">
+                   <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 9 4-4-4-4"/>
+               </svg>
+               <span class="sr-only">Next</span>
+           </span>
+       </button>
+   </div>
+
+<!--END:CArousel_slider-->
+
+</section>
+
                 <!-- TYPE OF LOANS -->
                 <section>
                     <div class="p-16">
@@ -233,7 +233,7 @@
                                     <svg class="flex-shrink-0 w-4 h-4 text-blue-600 dark:text-blue-500" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
                                     <path d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5Zm3.707 8.207-4 4a1 1 0 0 1-1.414 0l-2-2a1 1 0 0 1 1.414-1.414L9 10.586l3.293-3.293a1 1 0 0 1 1.414 1.414Z"/>
                                     </svg>
-                                    <span class="text-base font-normal leading-tight text-gray-500 dark:text-gray-400 ms-3">Monthly income of atleast ₱15,000</span>
+                                    <span class="text-base font-normal leading-tight text-gray-500 dark:text-gray-400 ms-3">Monthly income of atleast ₱10,000</span>
                                 </li>
                                 <li class="flex">
                                     <svg class="flex-shrink-0 w-4 h-4 text-blue-600 dark:text-blue-500" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
@@ -245,22 +245,16 @@
                                     <svg class="flex-shrink-0 w-4 h-4 text-blue-600 dark:text-blue-500" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
                                     <path d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5Zm3.707 8.207-4 4a1 1 0 0 1-1.414 0l-2-2a1 1 0 0 1 1.414-1.414L9 10.586l3.293-3.293a1 1 0 0 1 1.414 1.414Z"/>
                                     </svg>
-                                    <span class="text-base font-normal leading-tight text-gray-500 dark:text-gray-400 ms-3">Monthly income of atleast ₱15,000</span>
+                                    <span class="text-base font-normal leading-tight text-gray-500 dark:text-gray-400 ms-3">Loan maximum of ₱50,000</span>
                                 </li>
                                 <li class="flex">
                                     <svg class="flex-shrink-0 w-4 h-4 text-blue-600 dark:text-blue-500" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
                                     <path d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5Zm3.707 8.207-4 4a1 1 0 0 1-1.414 0l-2-2a1 1 0 0 1 1.414-1.414L9 10.586l3.293-3.293a1 1 0 0 1 1.414 1.414Z"/>
                                     </svg>
-                                    <span class="text-base font-normal leading-tight text-gray-500 dark:text-gray-400 ms-3">Monthly income of atleast ₱15,000</span>
-                                </li>
-                                <li class="flex">
-                                    <svg class="flex-shrink-0 w-4 h-4 text-blue-600 dark:text-blue-500" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
-                                    <path d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5Zm3.707 8.207-4 4a1 1 0 0 1-1.414 0l-2-2a1 1 0 0 1 1.414-1.414L9 10.586l3.293-3.293a1 1 0 0 1 1.414 1.414Z"/>
-                                    </svg>
-                                    <span class="text-base font-normal leading-tight text-gray-500 dark:text-gray-400 ms-3">Monthly income of atleast ₱15,000</span>
+                                    <span class="text-base font-normal leading-tight text-gray-500 dark:text-gray-400 ms-3">Recieved through E-wallet</span>
                                 </li>
                             </ul>
-                            <a href="{{route('login')}}" class="text-white bg-blue-600 hover:bg-blue-700 focus:ring-4 focus:outline-none focus:ring-blue-200 dark:focus:ring-blue-900 font-medium rounded-lg text-sm px-5 py-2.5 inline-flex justify-center w-full text-center">Choose plan</a>
+                            <a href="{{route('login')}}" class="text-white bg-blue-600 hover:bg-blue-700 focus:ring-4 focus:outline-none focus:ring-blue-200 dark:focus:ring-blue-900 font-medium rounded-lg text-sm px-5 py-2.5 inline-flex justify-center w-full text-center">Apply Now</a>
                         </div>
            
                     </div>
@@ -341,7 +335,7 @@
                 <div class="bg-white py-24 sm:py-32">
           <div class="mx-auto grid max-w-7xl gap-x-8 gap-y-20 px-6 lg:px-8 xl:grid-cols-3">
             <div class="max-w-2xl">
-              <h2 class="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">Meet our leadership</h2>
+              <h2 class="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">Meet Our Team</h2>
               <p class="mt-6 text-lg leading-8 text-gray-600">Get to know us better! here are the peeps that contributed on making this website happen.</p>
             </div>
             <ul role="list" class="grid gap-x-8 gap-y-12 sm:grid-cols-2 sm:gap-y-16 xl:col-span-2">
@@ -425,8 +419,9 @@
                 <!--end: OUR TEAM section-->
 
 
-
-
+        <!-- FOOTER -->
+        @extends('footer')
+        
         <!-- Scripts -->
         
         <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.2.0/flowbite.min.js"></script>

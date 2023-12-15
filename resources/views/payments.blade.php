@@ -67,7 +67,7 @@
             </div>
             @else
             <div class="my-5">
-            <p class="text-center text-1xl">No active loans to pay.</p>
+            <p class="text-center text-1xl">No Payment yet.</p>
             </div>
             @endif
             
@@ -76,4 +76,7 @@
 
         </div>
     </div>
+
+
+    @extends('footer')
 </x-app-layout>

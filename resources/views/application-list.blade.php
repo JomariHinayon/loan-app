@@ -47,7 +47,9 @@
                     </thead>
                     <tbody>
                     @foreach ($applications as $application)
-                    <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+
+                    <tr>
+                        <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
                             {{ $application->loan_number }}
                             </th>
                             <td class="px-6 py-4">
@@ -73,7 +75,7 @@
                                 </div>
                             </td>
 
-                       
+                            </tr>
                     @endforeach
                     </tbody>
                 </table>
@@ -89,4 +91,7 @@
 
         </div>
     </div>
+
+
+    @extends('footer')
 </x-app-layout>
