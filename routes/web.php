@@ -35,7 +35,7 @@ Route::middleware('auth')->group(function () {
 Route::get('/loans', [ProfileController::class, 'viewLoanList'])->name('profile.loans');
 Route::get('/payments', [ProfileController::class, 'viewPayment'])->name('profile.payment');
 Route::get('/loans/{id}', [ProfileController::class, 'viewLoan'])->name('profile.loan');
-
+Route::get('/applications', [ProfileController::class, 'viewApplicationList'])->name('profile.applicationList');
 require __DIR__.'/auth.php';
 
 
@@ -50,7 +50,6 @@ Route::post('/application/form/2/store', [AddressController::class, 'store'])->n
 Route::post('/application/form/3/store', [EmploymentController::class, 'store'])->name('employment.store');
 Route::post('/application/form/4/store', [ApplicationController::class, 'storeLoan'])->name('application.storeLoan');
 Route::put('/update-loan-status/{application}/{loan_status}', [ApplicationController::class, 'updateLoanStatus'])->name('application.update.loanStatus');
-
 
 
 // admin get 

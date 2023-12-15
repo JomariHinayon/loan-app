@@ -9,7 +9,7 @@
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
 
            <!-- OFFER: show if loan <= 3 -->
-            <div class="w-full p-4 text-center bg-white border border-gray-200 rounded-lg shadow sm:p-8 dark:bg-gray-800 dark:border-gray-700">
+            <!-- <div class="w-full p-4 text-center bg-white border border-gray-200 rounded-lg shadow sm:p-8 dark:bg-gray-800 dark:border-gray-700">
                 <h5 class="mb-2 text-5xl font-bold text-gray-900 dark:text-white">OFFER</h5>
                 <p class="mb-5 text-base text-gray-500 sm:text-lg dark:text-gray-400">You still have a loan offer. Apply now and get approved as soon as possible.</p>
                 <div class="items-center justify-center space-y-4 sm:flex sm:space-y-0 sm:space-x-4 rtl:space-x-reverse">
@@ -19,7 +19,7 @@
                         </div>
                     </a>
                 </div>
-            </div>
+            </div> -->
         </div>
     </div>
 </x-app-layout>

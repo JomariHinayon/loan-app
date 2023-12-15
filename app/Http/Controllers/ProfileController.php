@@ -100,4 +100,18 @@ class ProfileController extends Controller
         return view('payments', compact('payments', 'applications'));
     }
 
+    public function viewApplicationList(): View
+    {      
+        $userId = Auth::user()->id;
+        $applications = Application::where('user_id', $userId)
+                                    ->where(function ($query) {
+                                    $query->where('loan_status', 'process')
+                                    ->orWhere('loan_status', 'pending')
+                                    ->orWhere('loan_status', 'approved');
+                                })
+                                ->get();;
+                                    
+        return view('application-list', compact('applications'));
+    }
+
 }

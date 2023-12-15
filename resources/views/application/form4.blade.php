@@ -53,6 +53,20 @@
     </section>
 
     <section class=" dark:bg-gray-900">
+    @if($errors->any())
+    <div class="alert alert-danger text-center p-5">
+        <ul>
+            @foreach($errors->all() as $error)
+                <li>
+                    <p class="text-red-500">
+                    {{ $error }}
+                    </p>
+
+                </li>
+                @endforeach
+            </ul>
+        </div>
+    @endif
         <div class="bg-white py-16 px-4 mx-auto max-w-2xl lg:py-16">
             <h2 class="mb-4 text-xl font-bold text-gray-900 dark:text-white">Information about your loan</h2>
             <form action="{{route('application.storeLoan')}}" method="POST">
@@ -95,7 +109,7 @@
                         <label for="description" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Purpose of Loan</label>
                         <textarea id="description" rows="8" name="loan_purpose" class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-primary-500 focus:border-primary-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 
                         dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" 
-                        placeholder="Write a product description here..."></textarea>
+                        placeholder="Write a product description here..." required=""></textarea>
                     </div>
                     
                 </div>

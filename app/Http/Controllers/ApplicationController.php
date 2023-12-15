@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Validation\ValidationException;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\View\View;
@@ -23,38 +24,45 @@ class ApplicationController extends Controller
     {
         // dd($request->all());
         
-        // validate data
-        $request->validate([
-            'first_name' => 'required|string',
-            'middle_name' => 'required|string',
-            'last_name' => 'required|string',
-            'gender' => 'required|string',
-            'phone_number' => 'required|string',
-            'birthday' => 'required|date',
-        ]);
-
-        // reform birthday
-        $birthday = Carbon::createFromFormat('m/d/Y', $request->input('birthday'));
-        $formattedBirthday = $birthday->format('Y-m-d');
-
-        $userId = Auth::id();
-
-        // save data
-        $new_application = new Application([
-            'first_name' => $request->input('first_name'),
-            'middle_name' => $request->input('middle_name'),
-            'last_name' => $request->input('last_name'),
-            'gender' => $request->input('gender'),
-            'phone_number' => $request->input('phone_number'),
-            'birthday' => $formattedBirthday,
-            'user_id' => $userId,
-        ]);
-        $new_application->save();
-
-        event(new LoanCreated($new_application));
-
-        $request->session()->put('new_application_id', $new_application->id);
-        return redirect()->route('address.view_form')->with('success', 'Loan application submitted successfully.');
+        try {
+            // Validate data
+            $request->validate([
+                'first_name' => 'required|string',
+                'middle_name' => 'required|string',
+                'last_name' => 'required|string',
+                'gender' => 'required|string|in:male,female',
+                'phone_number' => 'required|string',
+                'birthday' => 'required|date',
+            ]);
+    
+            // Reform birthday
+            $birthday = Carbon::createFromFormat('m/d/Y', $request->input('birthday'));
+            $formattedBirthday = $birthday->format('Y-m-d');
+    
+            $userId = Auth::id();
+    
+            // Save data
+            $new_application = new Application([
+                'first_name' => $request->input('first_name'),
+                'middle_name' => $request->input('middle_name'),
+                'last_name' => $request->input('last_name'),
+                'gender' => $request->input('gender'),
+                'phone_number' => $request->input('phone_number'),
+                'birthday' => $formattedBirthday,
+                'user_id' => $userId,
+            ]);
+    
+            $new_application->save();
+    
+            event(new LoanCreated($new_application));
+    
+            $request->session()->put('new_application_id', $new_application->id);
+    
+            return redirect()->route('address.view_form')->with('success', 'Loan application submitted successfully.');
+        } catch (ValidationException $e) {
+            // If validation fails, redirect back with errors
+            return redirect()->back()->withErrors($e->validator->errors())->withInput();
+        }
     }
 
     public function view_loan(): View
@@ -67,21 +75,33 @@ class ApplicationController extends Controller
         // dd($request->all());
         
         // validate data
+        try {
+            
+            $request->validate([
+                'loan_amount' => 'required|numeric|min:10000|max:50000',
+                'months_to_pay' => 'required|in:9,12,24,32,46',
+                'loan_purpose' => 'required|string',
+            ]);
 
-        $newApplicationId = $request->session()->get('new_application_id');
-        $application = Application::findOrFail($newApplicationId);
+            $newApplicationId = $request->session()->get('new_application_id');
+            $application = Application::findOrFail($newApplicationId);
 
-        $application->loan_amount = $request->input('loan_amount');
-        $application->loan_purpose = $request->input('loan_purpose');
-        $application->interest_amount = $request->input('interest_amount');
-        $application->minimum_payment = $request->input('minimum_payment');
-        $application->full_payment = $request->input('full_payment');
-        $application->months_to_pay = (int)$request->input('months_to_pay');
-        $application->loan_status = "pending";
+            $application->loan_amount = $request->input('loan_amount');
+            $application->loan_purpose = $request->input('loan_purpose');
+            $application->interest_amount = $request->input('interest_amount');
+            $application->minimum_payment = $request->input('minimum_payment');
+            $application->full_payment = $request->input('full_payment');
+            $application->months_to_pay = (int)$request->input('months_to_pay');
+            $application->loan_status = "pending";
 
-        $application->save();
+            $application->save();
 
-        return redirect()->route('application.view_review')->with('success', 'Loan application submitted successfully.');
+            return redirect()->route('application.view_review')->with('success', 'Loan application submitted successfully.');
+
+        } catch (ValidationException $e) {
+            // If validation fails, redirect back with errors and old input
+            return redirect()->back()->withErrors($e->validator->errors())->withInput();
+        }
     }
 
 

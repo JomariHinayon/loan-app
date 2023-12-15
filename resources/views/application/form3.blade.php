@@ -53,6 +53,20 @@
     </section>
 
     <section class=" dark:bg-gray-900">
+    @if($errors->any())
+    <div class="alert alert-danger text-center p-5">
+        <ul>
+            @foreach($errors->all() as $error)
+                <li>
+                    <p class="text-red-500">
+                    {{ $error }}
+                    </p>
+
+                </li>
+                @endforeach
+            </ul>
+        </div>
+    @endif
         <div class="bg-white py-16 px-4 mx-auto max-w-2xl lg:py-16">
             <h2 class="mb-4 text-xl font-bold text-gray-900 dark:text-white">Information about your employment</h2>
             <form action="{{route('employment.store')}}" method="POST" enctype="multipart/form-data">
@@ -64,7 +78,6 @@
                         <label for="employment_type" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Type of employment</label>
                         <select name="employment_type" id="employment_type" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500">
                             <option selected="">Select category</option>
-                            <option value="Buiness Owner">Buiness Owner</option>
                             <option value="Freelancer">Freelancer</option>
                             <option value="Government Employee">Government Employee</option>
                             <option value="Private Company Employee">Private Company Employee</option>

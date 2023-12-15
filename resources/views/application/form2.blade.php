@@ -53,6 +53,20 @@
     </section>
 
     <section class=" dark:bg-gray-900">
+    @if($errors->any())
+    <div class="alert alert-danger text-center p-5">
+        <ul>
+            @foreach($errors->all() as $error)
+                <li>
+                    <p class="text-red-500">
+                    {{ $error }}
+                    </p>
+
+                </li>
+                @endforeach
+            </ul>
+        </div>
+    @endif
         <div class="bg-white py-16 px-4 mx-auto max-w-2xl lg:py-16">
             <h2 class="mb-4 text-xl font-bold text-gray-900 dark:text-white">Address Info</h2>
             <form action="{{route('address.store')}}" method="POST">

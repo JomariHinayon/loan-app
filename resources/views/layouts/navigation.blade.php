@@ -22,6 +22,11 @@
                     </x-nav-link> 
                 </div>
                 <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
+                    <x-nav-link :href="route('profile.applicationList')" :active="request()->routeIs('profile.applicationList')">
+                        {{ __('Applications') }}
+                    </x-nav-link> 
+                </div>
+                <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
                     <x-nav-link :href="route('profile.payment')" :active="request()->routeIs('profile.payment')">
                         {{ __('Payments') }}
                     </x-nav-link> 
