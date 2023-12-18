@@ -63,9 +63,15 @@
                     <th scope="row" class="flex items-center px-6 py-4 text-gray-900 whitespace-nowrap dark:text-white">
                         <!-- <img class="w-10 h-10 rounded-full" src="/docs/images/people/profile-picture-1.jpg" alt="Jese image"> -->
                         <div class="ps-3">
-                            <a href="{{ route('application.edit', ['id' => $application->id])}}">
-                                <div class="text-base font-semibold">{{ $application->loan_number }}</div>
-                            </a>
+                            @if($application->loan_status != "process")
+                                <a href="{{ route('application.edit', ['id' => $application->id])}}">
+                                    <div class="text-base font-semibold">{{ $application->loan_number }}</div>
+                                </a>
+                            
+                            @else
+
+                            <div class="text-base font-semibold">{{ $application->loan_number }}</div>
+                            @endif
                         </div>  
                     </th>
                     <td class="px-6 py-4">

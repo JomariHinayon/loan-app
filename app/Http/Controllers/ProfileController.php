@@ -11,6 +11,8 @@ use Illuminate\View\View;
 use App\Models\Application;
 use App\Models\Loan;
 use App\Models\Payment;
+use Carbon\Carbon;
+
 
 class ProfileController extends Controller
 {
@@ -112,6 +114,42 @@ class ProfileController extends Controller
                                 ->get();;
                                     
         return view('application-list', compact('applications'));
+    }
+
+    public function viewDashboard(): View
+    {      
+        $userId = Auth::user()->id;
+        $loans = Loan::where('user_id', $userId)->get();
+        $notification = "";
+
+        foreach ($loans as $loan) {
+            $startPaymentDate = Carbon::parse($loan->start_payment_date);
+            
+            // Get the day of the start_payment_date
+            $day = $startPaymentDate->day;
+        
+            // Get the current date
+            $today = Carbon::now();
+        
+            // Check if the start_payment_date is in the next week
+            if ($startPaymentDate->isNextWeek()) {
+                $notification = "This is to remind that you have loan to pay on " + $day;
+            }
+        }
+
+
+        $applications = Application::where('user_id', $userId)
+                                    ->where(function ($query) {
+                                    $query->where('loan_status', 'process')
+                                    ->orWhere('loan_status', 'pending')
+                                    ->orWhere('loan_status', 'approved');
+                                })
+                                ->get();;
+
+        
+
+                                    
+        return view('dashboard', compact('applications', 'notification'));
     }
 
 }

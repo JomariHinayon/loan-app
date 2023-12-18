@@ -9,6 +9,17 @@
             <span class="text-red-700">
             {{ strtoupper($application->loan_number) }}
             </span>
+            <div class=" me-2">
+                        @if ( $application->loan_status == "pending" )
+                        <span class="bg-yellow-600 text-yellow-100 text-sm font-bold  me-2 px-3 py-1 rounded-md ">Pending</span>
+                        @elseif ($application->loan_status == "process" )
+                        <span class="bg-gray-800 text-gray-100 text-sm font-bold  me-2 px-3 py-1 rounded-md ">In Process</span>
+                        @elseif ($application->loan_status == "failed" )
+                        <span class="bg-red-800 text-red-100 text-sm font-bold  me-2 px-3 py-1 rounded-md ">Failed</span>
+                        @elseif ($application->loan_status == "approved" )
+                        <span class="bg-green-600 text-green-100 text-sm font-bold  me-2 px-3 py-1 rounded-md ">Approved</span>
+                        @endif
+                        </div>
         </h2>
         <div class="flex items-center gap-3">
             <p class="text-lg font-bold text-gray-900 dark:text-white">STATUS: </p>
@@ -191,7 +202,7 @@
                     <label for="item-weight" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Monthly Income</label>
                     <input type="number" name="monthly_income" value="{{$employment->monthly_income}}"  id="item-weight" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" value="15" placeholder="Ex. 12" required="">
                 </div> 
-                <div class="sm:col-span-4">
+                <div class="sm:col-span-6">
                     <label for="salary_day" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">How often do you get your salary in a month</label>
                         <select name="salary_day" id="salary_day" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500">
                             <option >Select category</option>
@@ -200,10 +211,52 @@
                             <option value="Weekly" {{ "Weekly" == $address->salary_day ? 'selected=""' : '' }}>Weekly</option>
                         </select>
                 </div>
+                <div class="sm:col-span-12">
+                    <label for="valid_id1" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Valid Id 1</label>
+                    <img class="h-auto max-w-full" src="{{ url('storage/images/'.$application->valid_id1) }}" alt="image description">
+                </div>
+                <div class="sm:col-span-12">
+                    <label for="valid_id2" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Valid Id 2</label>
+                    <img class="h-auto max-w-full" src="{{ url('storage/images/'.$application->valid_id2) }}" alt="image description">
+                </div>
+            </div>
+
+            <div class="grid gap-4 mb-4 sm:grid-cols-10 sm:gap-6 sm:8 w-full">
+                <div class="sm:col-span-12">
+                    <p class="text-lg font-semibold">Loan Details</p>
+                </div>
+                <div class="sm:col-span-6">
+                    <label for="payment_method" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Payment Method</label>
+                        <select name="payment_method" id="payment_method" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500">
+                            <option >Select category</option>
+                            <option value="paymaya" {{ "paymaya" == $application->payment_method ? 'selected=""' : '' }}>PayMaya</option>
+                            <option value="g-cash" {{ "g-cash" == $application->payment_method ? 'selected=""' : '' }}>G-Cash</option>
+                            <option value="manual" {{ "manual" == $application->payment_method ? 'selected=""' : '' }}>Manual</option>
+                        </select>
+                </div>
+                <div class="sm:col-span-6">
+                    <label for="item-weight" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Loan Amount</label>
+                    <input type="text" name="company_name" value="{{$application->loan_amount}}"  id="item-weight" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" value="15" placeholder="Ex. 12" required="">
+                </div> 
+                <div class="sm:col-span-12">
+                    <label for="item-weight" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Interest Amount</label>
+                    <input type="text" name="company_name" value="{{$application->interest_amount}}"  id="item-weight" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" value="15" placeholder="Ex. 12" required="">
+                </div> 
+                <div class="sm:col-span-12">
+                    <label for="item-weight" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Full Payment Amount</label>
+                    <input type="text" name="company_name" value="{{$application->full_payment}}"  id="item-weight" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" value="15" placeholder="Ex. 12" required="">
+                </div> 
+                <div class="sm:col-span-12">
+                        <label for="description" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Purpose of Loan</label>
+                        <textarea id="description" rows="8" name="loan_purpose" class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-primary-500 focus:border-primary-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 
+                        dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" 
+                        placeholder="Write a product description here..." required="" value="{{$application->loan_purpose}}">{{$application->loan_purpose}}
+                    </textarea>
+                    </div>
             </div>
 
         </div>
-                    <div class="flex items-center space-x-4">
+            <!-- <div class="flex items-center space-x-4">
                 <button type="button" class="text-red-600 inline-flex items-center hover:text-white border border-red-600 hover:bg-red-600 focus:ring-4 focus:outline-none focus:ring-red-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:border-red-500 dark:text-red-500 dark:hover:text-white dark:hover:bg-red-600 dark:focus:ring-red-900">
                     <svg class="w-5 h-5 mr-1 -ml-1" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M9 2a1 1 0 00-.894.553L7.382 4H4a1 1 0 000 2v10a2 2 0 002 2h8a2 2 0 002-2V6a1 1 0 100-2h-3.382l-.724-1.447A1 1 0 0011 2H9zM7 8a1 1 0 012 0v6a1 1 0 11-2 0V8zm5-1a1 1 0 00-1 1v6a1 1 0 102 0V8a1 1 0 00-1-1z" clip-rule="evenodd"></path></svg>
                     Delete
@@ -214,7 +267,7 @@
                     </svg>                  
                     Update
                 </button>
-            </div>
+            </div> -->
 
       </form>
   </div>

@@ -82,8 +82,6 @@
                             <option value="Government Employee">Government Employee</option>
                             <option value="Private Company Employee">Private Company Employee</option>
                             <option value="Self Employed">Self Employed</option>
-                            <option value="Student">Student</option>
-                            <option value="Unemployed">Unemployed</option>
                         </select>
                     </div>
                     <div class="col-span-2">

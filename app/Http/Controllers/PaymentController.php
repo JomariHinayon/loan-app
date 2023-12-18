@@ -40,6 +40,11 @@ class PaymentController extends Controller
             
             try{
                 $monthlyPayments = $loan->payment_monthly;
+                
+                if ($loan->payment_monthly[$request->input('month_paid') - 1]['is_paid'] == true) {
+                    return redirect()->back()->withErrors(['loan' => 'Month of the given loan number already paid.'])->withInput();
+                }
+
                 $monthlyPayments[$request->input('month_paid') - 1]['is_paid'] = true;
                 $loan->update(['payment_monthly' => $monthlyPayments]);
 

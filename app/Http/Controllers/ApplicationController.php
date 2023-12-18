@@ -81,6 +81,7 @@ class ApplicationController extends Controller
                 'loan_amount' => 'required|numeric|min:10000|max:50000',
                 'months_to_pay' => 'required|in:9,12,24,32,46',
                 'loan_purpose' => 'required|string',
+                'payment_method' => 'required|string',
             ]);
 
             $newApplicationId = $request->session()->get('new_application_id');
@@ -93,7 +94,7 @@ class ApplicationController extends Controller
             $application->full_payment = $request->input('full_payment');
             $application->months_to_pay = (int)$request->input('months_to_pay');
             $application->loan_status = "pending";
-
+            $application->payment_method = $request->input('payment_method');
             $application->save();
 
             return redirect()->route('application.view_review')->with('success', 'Loan application submitted successfully.');
@@ -139,8 +140,10 @@ class ApplicationController extends Controller
             $status = 'error';
             $message = 'Failed to update loan status.';
         }
+        
+        $loan = Loan::where('application_id', $application->id)->first();
 
-        if ($loan_status === "approved") {
+        if ($loan_status === "approved" && !$loan) {
             $currentDate = Carbon::now();
             $nextMonth = $currentDate->addMonth();
 
@@ -179,6 +182,13 @@ class ApplicationController extends Controller
 
             $application->save();
             $new_repayment_tracking->save();
+        } else {
+            
+            if ($loan && $loan_status !== "approved") {
+                 $loan->delete();
+            }
+
+            
         }
 
         // Flash status and message to the session

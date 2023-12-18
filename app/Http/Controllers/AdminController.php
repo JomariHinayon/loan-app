@@ -117,6 +117,18 @@ class AdminController extends Controller
         return view('admin.edit.user', compact('user'));
     }
 
+    public function updateUser(Request $request)
+    {
+        
+        $user = User::findOrFail($request->id);
+
+        $user->name = $request->name;
+        $user->email = $request->email;
+        $user->save();
+
+        return view('admin.edit.user', compact('user'));
+    }
+
     public function deleteUser($id)
     {
         $user = User::findOrFail($id);

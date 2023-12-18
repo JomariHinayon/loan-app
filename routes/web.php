@@ -23,9 +23,7 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth', 'verified'])->name('dashboard');
+Route::get('/dashboard',  [ProfileController::class, 'viewDashboard'])->middleware(['auth', 'verified'])->name('dashboard');
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
@@ -65,6 +63,7 @@ Route::get('/admin/users/edit/{id}', [AdminController::class, 'editUser'])->name
 Route::get('/admin/applications/edit/{id}', [AdminController::class, 'editApplication'])->name('application.edit');
 Route::get('/admin/payments/create', [PaymentController::class, 'createPaymentView'])->name('admin.payments.create');
 Route::post('/admin/payments/add', [PaymentController::class, 'addPayment'])->name('admin.payments.add');
+Route::post('/admin/users/edit/update', [AdminController::class, 'updateUser'])->name('admin.user.update');
 
 
 // admin post

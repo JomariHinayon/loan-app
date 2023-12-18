@@ -10,10 +10,9 @@
 
            <!-- OFFER: show if loan <= 3 -->
 
-           @extends('offer-loan')
  
            
-           @if($applications->count() <= 3)
+           @if($applications->count() < 3)
             <div class="w-full p-4 text-center bg-white border border-gray-200 rounded-lg shadow sm:p-8 dark:bg-gray-800 dark:border-gray-700 mb-10">
                 <h5 class="mb-2 text-5xl font-bold text-gray-900 dark:text-white">OFFER</h5>
                 <p class="mb-5 text-base text-gray-500 sm:text-lg dark:text-gray-400">You still have a   offer. Apply now and get approved as soon as possible.</p>
